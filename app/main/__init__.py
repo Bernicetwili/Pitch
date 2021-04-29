@@ -1,13 +1,5 @@
-from flask import Flask
-from flask_bootstrap import Bootstrap
-from config import config_options
-from flask_sqlalchemy import SQLAlchemy
+from flask import Blueprint
 
-bootstrap = Bootstrap()
-db = SQLAlchemy
-
-
-
-
+main = Blueprint('main', __name__)
 
 from . import views
