@@ -1,10 +1,11 @@
-from .import auth
-from flask import render_template,redirect,url_for, flash,request
+from . import auth
+from flask import Flask, render_template,redirect,url_for, flash,request
 from ..models import User
 from flask_login import login_user,logout_user,login_required
 from .forms import LoginForm,RegistrationForm
 from ..import db
 from ..email import mail_message
+
 
 @auth.route('/login',methods=['GET','POST'])
 def login():
@@ -17,10 +18,10 @@ def login():
 
         flash('Invalid author or Password')
 
-    title = "Pitches login"
+    title = "Pitch login"
     return render_template('auth/login.html',login_form = login_form,title=title)
 
-auth.route('/register',methods = ["GET","POST"])
+@auth.route('/register',methods = ["GET","POST"])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():

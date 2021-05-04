@@ -54,7 +54,7 @@ def profile(uname):
     user = User.query.filter_by(author = uname).first()
 
     if user is None:
-        abort(404)
+       abort (404)
 
     return render_template("profile/profile.html", user = user)
 
@@ -64,7 +64,7 @@ def profile(uname):
 def update_profile(uname):
     user = User.query.filter_by(author = uname).first()
     if user is None:
-        abort(404)
+       abort (404)
 
     form = UpdateProfile()
 
