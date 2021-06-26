@@ -3,7 +3,7 @@ import os
 class Config:
 
     SECRET_KEY=os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringaschool:moringa@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringaschool:moringa@localhost/pitches'
 
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -14,7 +14,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SUBJECT_PREFIX = 'Pitch It Up!'
+    SUBJECT_PREFIX = 'Pitch!'
     SENDER_EMAIL = 'bernicetwili0@gmail.com'
 
     @staticmethod

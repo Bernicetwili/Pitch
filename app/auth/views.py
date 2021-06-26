@@ -1,4 +1,4 @@
-from . import auth
+from .import auth
 from flask import Flask, render_template,redirect,url_for, flash,request
 from ..models import User
 from flask_login import login_user,logout_user,login_required
@@ -21,6 +21,7 @@ def login():
     title = "Pitch login"
     return render_template('auth/login.html',login_form = login_form,title=title)
 
+
 @auth.route('/register',methods = ["GET","POST"])
 def register():
     form = RegistrationForm()
@@ -32,7 +33,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message("Welcome to Pitch It Up!","email/welcome_user",user.email,user=user)
+        mail_message("Welcome to Pitch!","email/welcome_user",user.email,user=user)
 
         title = "New Account"
 
@@ -40,8 +41,11 @@ def register():
 
     return render_template('auth/register.html',registration_form = form)
 
+
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("main.index"))
+
